@@ -30,6 +30,23 @@ class DataReader(val data: String) {
     fun getFirstLine(): String = getLines().first()
     fun getLinesAsInt(): List<Int> = getLines().map { it.toInt() }
     fun getFirstLineAsInt(): Int = getLines().first().toInt()
+    fun getColumn(columnIndex: Int): String {
+        var column = ""
+        getLines().forEach {
+            column += it[columnIndex]
+        }
+
+        return column
+    }
+
+    fun getColumns(): List<String> {
+        val columns = mutableListOf<String>()
+        val lastColumnIndex = getFirstLine().length
+        for (columnIndex in 0 until lastColumnIndex) {
+            columns.add(getColumn(columnIndex))
+        }
+        return columns
+    }
 
 }
 
