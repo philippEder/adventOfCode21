@@ -11,6 +11,7 @@ class DataReader(val data: String) {
     }
 
     fun getPreviousLine() = getLines()[index-1]
+    fun getRemainingLines() = getLines().subList(index, getLines().size)
     fun getNextLineAsInt(): Int = getNextLine().toInt();
     fun getPreviousLineAsInt() = getPreviousLine().toInt()
     fun hasNext() = getLines().size > index
