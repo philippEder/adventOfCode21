@@ -35,22 +35,12 @@ data class Line(
             }
         }
 
-
         return false
     }
 
-    fun isVertical(): Boolean {
-        return x1 == x2
-    }
-
-    fun isHorizontal(): Boolean {
-        return y1 == y2
-    }
-
-    fun isDiagonal(): Boolean {
-        return !isVertical() && !isHorizontal()
-    }
-
+    fun isVertical(): Boolean = x1 == x2
+    fun isHorizontal(): Boolean = y1 == y2
+    fun isDiagonal(): Boolean = !isVertical() && !isHorizontal()
     fun isAscending() = y2 < y1
     fun isLeftToRight() = x1 < x2
 
