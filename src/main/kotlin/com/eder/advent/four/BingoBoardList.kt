@@ -1,4 +1,4 @@
-package com.eder.advent
+package com.eder.advent.four
 
 class BingoBoardList(val boards: List<BingoBoard>) {
 

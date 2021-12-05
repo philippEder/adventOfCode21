@@ -1,5 +1,5 @@
-import com.eder.advent.BingoBoard
-import com.eder.advent.BingoBoardList
+import com.eder.advent.four.BingoBoard
+import com.eder.advent.four.BingoBoardList
 import com.eder.advent.DataReader
 import org.junit.jupiter.api.Test
 
