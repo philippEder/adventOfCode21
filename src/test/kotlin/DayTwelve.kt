@@ -10,7 +10,7 @@ class DayTwelve {
 
 
     @Test
-    fun partOne() {
+    fun partTwo() {
         val startingEdges = edges.filter { it.first == START || it.second == START }
         startingEdges.forEach {
             val nextCave = if (START == it.first) {
