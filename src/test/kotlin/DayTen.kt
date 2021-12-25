@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Test
+import kotlin.test.assertEquals
 
 class DayTen {
 
@@ -39,6 +40,7 @@ class DayTen {
         invalidCharacters.forEach { sum += pointsTable[it]!! }
 
         println(sum)
+        assertEquals(290691, sum)
     }
 
     @Test
@@ -69,6 +71,18 @@ class DayTen {
         println(scores.sorted()[scores.size/2])
     }
 
+    @Test
+    fun line3Test() {
+        val line = "<[[[(<[{{{(<({()<>)([][]))(<{}()>{[][]})>{[[{}()][[][]]]({{}[]}[()()])})}[{<([()()]{()<>}){([]"
+        var missingClosings = mutableListOf<String>()
+        swapOpeningAndClosings()
+        val missingClosingsList = mutableListOf<Char>()
+        getErrorIndizes(line.reversed(), missingClosingsList)
+        missingClosings.add(missingClosingsList.joinToString(""))
+        swapOpeningAndClosings()
+
+    }
+
 
 
 
@@ -84,7 +98,7 @@ class DayTen {
 
     fun getErrorIndizes(line: String, missingClosings: MutableList<Char>): List<Int> {
 
-        var lastOpeningKlammerIndex = 0
+        var lastOpeningKlammerIndex = -1
         val closedIndizes = mutableListOf<Int>()
         val errorIndizes = mutableListOf<Int>()
 
@@ -92,7 +106,7 @@ class DayTen {
             missingClosings.add(getOposite(line[0]))
         }
 
-        for (index in 1 until line.length) {
+        for (index in line.indices) {
             val current = line[index]
             if (isOpening(current)) {
                 lastOpeningKlammerIndex = index
