@@ -60,8 +60,7 @@ class Day13 {
     }
 
     private fun foldUp(line: Int) {
-        coordinates = coordinates.filter { it.y != line }
-
+        coordinates.filter { it.y != line }
         coordinates.forEach {
             if (it.y > line) {
                 it.y = it.y - (it.y - line) * 2
@@ -70,8 +69,7 @@ class Day13 {
     }
 
     private fun foldLeft(line: Int) {
-        coordinates = coordinates.filter { it.x != line }
-
+        coordinates.filter { it.x != line }
         coordinates.forEach {
             if (it.x > line) {
                 it.x = it.x - (it.x - line) * 2
